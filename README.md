@@ -34,7 +34,7 @@ NOTES
   "x" : "wy8hrsVOUxT6eGdQnccdVNbx7JnV7oqiSGMY2kmGgjo"
 }
 ```
-#### Will produce this kind of JWT for the `"npk"`
+#### Shall be combined into the following JWT containing `"npk"`
 ```
 {
   "typ" : "JWT",
@@ -59,7 +59,7 @@ NOTES
 - "kid" SHOULD be present and represent the JWT thumbprint of a pinned public key.
 
 
-#### When used signing the following:
+#### When used to sign the following:
 ```
 {
   "kid" : "WgL_9NpEmJtUBQ8q-Ff3txkU2vInbZxFF9rxeintiRU",
@@ -71,7 +71,7 @@ NOTES
   "novelty" : false
 }
 ```
-#### will yield an actual JWS of
+#### will yield an actual JWS of npk header + payload
 `eyJraWQiOiJXZ0xfOU5wRW1KdFVCUThxLUZmM3R4a1UydkluYlp4RkY5cnhlaW50aVJVIiwibnBrIjoiZXlKMGVYQWlPaUpLVjFRaUxDSnJhV1FpT2lKblRtTlVUR1pJVVZaclZtSnViMVZUU0dWNmNrNVpaRUZEUWpoSE1qRTFXV2gxZWpoMkxWZFJOek56SWl3aVlXeG5Jam9pUldSRVUwRWlmUS5leUpwYzNNaU9pSmtUSG80UWkxWE1EWjFUM1Y2UmtaNmVYZExYMkZYVVhOTlN6VnphVkJwTmxsU1ZURXdkbGw2ZGs4NElpd2libkJySWpwN0ltTnlkaUk2SWtWa01qVTFNVGtpTENKcmRIa2lPaUpQUzFBaUxDSjRJam9pZDNrNGFISnpWazlWZUZRMlpVZGtVVzVqWTJSV1RtSjROMHB1VmpkdmNXbFRSMDFaTW10dFIyZHFieUo5TENKcFlYUWlPakUyTURJME1EWXdNVEFzSW01aVppSTZNVFl3TWpRd05qQXhNQ3dpWlhod0lqb3hOakF5TkRreU5ERXdmUS4xNHN4MjhfNlNTSEd3RXBoSEIzZGRYSEhCVmVxRFRKR1hvdlFTWVhadjNzdmRudGYtYmhaTXBfaGZqa25GRWRZWVNtSm1zNzgtRzlyTURadl9Db2NBUSIsImFsZyI6IkVkRFNBIn0.eyJIZWxsbyI6IldvcmxkIiwibm92ZWx0eSI6ZmFsc2V9.9LVJvJrJNGGlozLYhts3G-AetgMeBmmTVAoKlt9-J7OEOPM8jLvL_dHBHEEOyXxdUxhxl7DAWyra4sWTehioDw`
 
 
