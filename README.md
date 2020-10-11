@@ -7,9 +7,14 @@ Profile of OpenID ID Token.
 
 
 ## Notarized JWK-s / Subkeys (JWT)
+
 Public key pinning
 
-`"kid"` contains a RFC7638 fingerprint vs Notarized JWK as a JWT
+`"npk"` - Notarized Public Key
+
+When used in header: contains the JWT (XX.XX.XX string) with `"npk"` in payload
+
+When used in payload: contains the minimal representation of the public key as JSON structure
 
 JSON Web Key (JWK) Thumbprint https://tools.ietf.org/html/rfc7638
 
