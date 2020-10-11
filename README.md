@@ -15,6 +15,10 @@ Here because https://www.reddit.com/r/crypto/comments/hoph9d/x509_in_jsonjwt/ yi
 
 In essence something not unlike PGP subkeys or mini-CA where there is no "subject identity", just public keys.
 
+In essence:
+- "npk" field for JWT payload, which is like a certificate
+- "npk" field for JWS header, which acts like replacement for "kid" - includes a self-contained claim that chains to an explicitly trusted public key.
+
 #### Given a master key with JWK thumbprint `gNcTLfHQVkVbnoUSHezrNYdACB8G215Yhuz8v-WQ73s`
 ```
 {
