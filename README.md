@@ -10,7 +10,7 @@ Profile of OpenID ID Token.
 
 Public key pinning / `"npk"` - Notarized Public Key
 
-Given a master key with JWK thumbprint `gNcTLfHQVkVbnoUSHezrNYdACB8G215Yhuz8v-WQ73s`
+#### Given a master key with JWK thumbprint `gNcTLfHQVkVbnoUSHezrNYdACB8G215Yhuz8v-WQ73s`
 ```
 {
   "crv" : "Ed25519",
@@ -18,8 +18,10 @@ Given a master key with JWK thumbprint `gNcTLfHQVkVbnoUSHezrNYdACB8G215Yhuz8v-WQ
   "x" : "dLz8B-W06uOuzFFzywK_aWQsMK5siPi6YRU10vYzvO8"
 }
 ```
+NOTES
+- public key value "x" MUST be pinned in the application
 
-Given a subkey with JWK thumbprint `WgL_9NpEmJtUBQ8q-Ff3txkU2vInbZxFF9rxeintiRU`
+#### Given a subkey with JWK thumbprint `WgL_9NpEmJtUBQ8q-Ff3txkU2vInbZxFF9rxeintiRU`
 ```
 {
   "crv" : "Ed25519",
@@ -27,7 +29,7 @@ Given a subkey with JWK thumbprint `WgL_9NpEmJtUBQ8q-Ff3txkU2vInbZxFF9rxeintiRU`
   "x" : "wy8hrsVOUxT6eGdQnccdVNbx7JnV7oqiSGMY2kmGgjo"
 }
 ```
-Will produce this kind of JWT for the `"npk"`
+#### Will produce this kind of JWT for the `"npk"`
 ```
 {
   "typ" : "JWT",
@@ -47,12 +49,12 @@ Will produce this kind of JWT for the `"npk"`
 }
 ```
 NOTES
-- "iat", "nbf" and "exp" MUST be present
+- "iat", "nbf" and "exp" MUST be present and MUST be checked against current time when consumed
 - "iss" SHOULD be present and represent the "x" of EdDSA public key for self-contained NPK-s
 - "kid" SHOULD be present and represent the JWT thumbprint of a pinned public key.
 
 
-When used signing the following:
+#### When used signing the following:
 ```
 {
   "kid" : "WgL_9NpEmJtUBQ8q-Ff3txkU2vInbZxFF9rxeintiRU",
@@ -64,9 +66,11 @@ When used signing the following:
   "novelty" : false
 }
 ```
-will yield an actual JWS of `eyJraWQiOiJXZ0xfOU5wRW1KdFVCUThxLUZmM3R4a1UydkluYlp4RkY5cnhlaW50aVJVIiwibnBrIjoiZXlKMGVYQWlPaUpLVjFRaUxDSnJhV1FpT2lKblRtTlVUR1pJVVZaclZtSnViMVZUU0dWNmNrNVpaRUZEUWpoSE1qRTFXV2gxZWpoMkxWZFJOek56SWl3aVlXeG5Jam9pUldSRVUwRWlmUS5leUpwYzNNaU9pSmtUSG80UWkxWE1EWjFUM1Y2UmtaNmVYZExYMkZYVVhOTlN6VnphVkJwTmxsU1ZURXdkbGw2ZGs4NElpd2libkJySWpwN0ltTnlkaUk2SWtWa01qVTFNVGtpTENKcmRIa2lPaUpQUzFBaUxDSjRJam9pZDNrNGFISnpWazlWZUZRMlpVZGtVVzVqWTJSV1RtSjROMHB1VmpkdmNXbFRSMDFaTW10dFIyZHFieUo5TENKcFlYUWlPakUyTURJME1EWXdNVEFzSW01aVppSTZNVFl3TWpRd05qQXhNQ3dpWlhod0lqb3hOakF5TkRreU5ERXdmUS4xNHN4MjhfNlNTSEd3RXBoSEIzZGRYSEhCVmVxRFRKR1hvdlFTWVhadjNzdmRudGYtYmhaTXBfaGZqa25GRWRZWVNtSm1zNzgtRzlyTURadl9Db2NBUSIsImFsZyI6IkVkRFNBIn0.eyJIZWxsbyI6IldvcmxkIiwibm92ZWx0eSI6ZmFsc2V9.9LVJvJrJNGGlozLYhts3G-AetgMeBmmTVAoKlt9-J7OEOPM8jLvL_dHBHEEOyXxdUxhxl7DAWyra4sWTehioDw`
+#### will yield an actual JWS of
+`eyJraWQiOiJXZ0xfOU5wRW1KdFVCUThxLUZmM3R4a1UydkluYlp4RkY5cnhlaW50aVJVIiwibnBrIjoiZXlKMGVYQWlPaUpLVjFRaUxDSnJhV1FpT2lKblRtTlVUR1pJVVZaclZtSnViMVZUU0dWNmNrNVpaRUZEUWpoSE1qRTFXV2gxZWpoMkxWZFJOek56SWl3aVlXeG5Jam9pUldSRVUwRWlmUS5leUpwYzNNaU9pSmtUSG80UWkxWE1EWjFUM1Y2UmtaNmVYZExYMkZYVVhOTlN6VnphVkJwTmxsU1ZURXdkbGw2ZGs4NElpd2libkJySWpwN0ltTnlkaUk2SWtWa01qVTFNVGtpTENKcmRIa2lPaUpQUzFBaUxDSjRJam9pZDNrNGFISnpWazlWZUZRMlpVZGtVVzVqWTJSV1RtSjROMHB1VmpkdmNXbFRSMDFaTW10dFIyZHFieUo5TENKcFlYUWlPakUyTURJME1EWXdNVEFzSW01aVppSTZNVFl3TWpRd05qQXhNQ3dpWlhod0lqb3hOakF5TkRreU5ERXdmUS4xNHN4MjhfNlNTSEd3RXBoSEIzZGRYSEhCVmVxRFRKR1hvdlFTWVhadjNzdmRudGYtYmhaTXBfaGZqa25GRWRZWVNtSm1zNzgtRzlyTURadl9Db2NBUSIsImFsZyI6IkVkRFNBIn0.eyJIZWxsbyI6IldvcmxkIiwibm92ZWx0eSI6ZmFsc2V9.9LVJvJrJNGGlozLYhts3G-AetgMeBmmTVAoKlt9-J7OEOPM8jLvL_dHBHEEOyXxdUxhxl7DAWyra4sWTehioDw`
 
 
 NOTES
 - "kid" MAY be present in header
 - when "kid" is present in header, it MUST match the "kid" of the "npk"
+- application MAY cache NPK-s, in which case it MUST check the time related fields of the JWT before each use.
