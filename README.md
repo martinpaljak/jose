@@ -18,5 +18,6 @@ When used in payload: contains the minimal representation of the public key as J
 
 JSON Web Key (JWK) Thumbprint https://tools.ietf.org/html/rfc7638
 
+Self-describing NPK should have the public key x 
 
 ## 
