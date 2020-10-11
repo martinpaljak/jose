@@ -1,4 +1,4 @@
-# StJOSE
+# St.JOSE - Secure, targeted JOSE
 Opinionated usage of JOSE (JWK, JWS, JWT) for authentication and private messaging in cloud services
 
 ## `"npk"` - Notarized Public Keys (JWT as JWS header value with a notarized JWK)
