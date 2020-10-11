@@ -1,11 +1,6 @@
 # JOSE
 Usage of JOSE (JWK, JWS, JWT) for authentication and messaging
 
-## JWT: X509 WebAuth
-Profile of OpenID ID Token.
-
-
-
 ## Notarized Subkeys (JWT as JWS header value with an notarized JWK)
 
 Public key pinning / `"npk"` - Notarized Public Key
