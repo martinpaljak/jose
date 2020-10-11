@@ -1,5 +1,5 @@
-# JOSE
-Usage of JOSE (JWK, JWS, JWT) for authentication and messaging
+# StJOSE
+Opinionated usage of JOSE (JWK, JWS, JWT) for authentication and private messaging in cloud services
 
 ## `"npk"` - Notarized Public Keys (JWT as JWS header value with a notarized JWK)
 > AKA - pinned key with temporary subkeys.
