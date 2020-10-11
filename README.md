@@ -54,6 +54,8 @@ NOTES
 }
 ```
 NOTES
+- "npk" MUST be present and contain the JSON used to calculate the JWK Thumbrpint of the key
+  - XXX: would use "sub" but that must be a string. Encoding "npk" into base64 for inclusion in "sub" seems weird
 - "iat", "nbf" and "exp" MUST be present and MUST be checked against current time when consumed
 - "iss" SHOULD be present and represent the "x" of EdDSA public key for self-contained NPK-s
 - "kid" SHOULD be present and represent the JWT thumbprint of a pinned public key.
