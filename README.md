@@ -13,6 +13,7 @@ Goals:
 
 Here because https://www.reddit.com/r/crypto/comments/hoph9d/x509_in_jsonjwt/ yielded no results.
 
+In essence something not unlike PGP subkeys
 
 #### Given a master key with JWK thumbprint `gNcTLfHQVkVbnoUSHezrNYdACB8G215Yhuz8v-WQ73s`
 ```
