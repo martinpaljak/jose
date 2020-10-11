@@ -1,17 +1,18 @@
 # JOSE
 Usage of JOSE (JWK, JWS, JWT) for authentication and messaging
 
-## Notarized Subkeys (JWT as JWS header value with an notarized JWK)
+## `"npk"` - Notarized Public Keys (JWT as JWS header value with a notarized JWK)
+> AKA - pinned key with temporary subkeys.
+
 Goals:
 - have a cloud service that depend on Ed25519 signing keys for identity
 - have client applications pin that public key in code
-- don't have copies of the pinned key in cloud services
+- don't have exposed copies of the pinned key in cloud services
 - don't create a full X509 style CA system
 - keep pinned key offline and distribute temporary keys to cloud services during deployment
 
 Here because https://www.reddit.com/r/crypto/comments/hoph9d/x509_in_jsonjwt/ yielded no results.
 
-Public key pinning / `"npk"` - Notarized Public Key
 
 #### Given a master key with JWK thumbprint `gNcTLfHQVkVbnoUSHezrNYdACB8G215Yhuz8v-WQ73s`
 ```
