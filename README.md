@@ -69,3 +69,4 @@ will yield an actual JWS of `eyJraWQiOiJXZ0xfOU5wRW1KdFVCUThxLUZmM3R4a1UydkluYlp
 
 NOTES
 - "kid" MAY be present in header
+- when "kid" is present in header, it MUST match the "kid" of the "npk"
