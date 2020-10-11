@@ -6,7 +6,7 @@ Profile of OpenID ID Token.
 
 
 
-## Notarized JWK-s / Subkeys (JWT)
+## Notarized Subkeys (JWT as JWS header value with an notarized JWK)
 
 Public key pinning / `"npk"` - Notarized Public Key
 
