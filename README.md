@@ -8,7 +8,7 @@ Goals:
 - have a cloud service that depend on Ed25519 signing keys for identity
 - have client applications pin that public key in code
 - don't have exposed copies of the pinned key in cloud services
-- don't create a full X509 style CA system
+- don't create a full X509 style PKI CA system
 - keep pinned key offline and distribute temporary keys to cloud services during deployment
 
 Here because https://www.reddit.com/r/crypto/comments/hoph9d/x509_in_jsonjwt/ yielded no results.
@@ -18,6 +18,7 @@ In essence something not unlike PGP subkeys or mini-CA where there is no "subjec
 In essence:
 - "npk" field for JWT payload, which is like a certificate
 - "npk" field for JWS header, which acts like replacement for "kid" - includes a self-contained claim that chains to an explicitly trusted public key.
+- "this key" certifies "that key" to be valid for a while as "this key"
 
 #### Given a master key with JWK thumbprint `gNcTLfHQVkVbnoUSHezrNYdACB8G215Yhuz8v-WQ73s`
 ```
