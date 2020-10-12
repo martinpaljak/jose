@@ -18,7 +18,7 @@ In essence something not unlike PGP subkeys or mini-CA where there is no "subjec
 In essence:
 - "npk" field for JWT payload, which is like a certificate; contains the public key to be notarized
 - "npk" field for JWS header, which acts like replacement for "kid" - includes a self-contained claim that chains to an explicitly trusted public key.
-- for transferring a claim: "this key" certifies "that key" to be valid for a while as "this key"
+- convention for expressing with JW* technologies the claim: "this key" certifies "that key" to be valid for a while as "this key"
 
 Similar:
 - https://tools.ietf.org/id/draft-yusef-oauth-nested-jwt-00.html
