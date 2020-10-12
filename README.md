@@ -18,7 +18,7 @@ In essence something not unlike PGP subkeys or mini-CA where there is no "subjec
 In essence:
 - "npk" field for JWT payload, which is like a certificate; contains the public key to be notarized
 - "npk" field for JWS header, which acts like replacement for "kid" - includes a self-contained claim that chains to an explicitly trusted public key.
-- "this key" certifies "that key" to be valid for a while as "this key"
+- for transferring a claim: "this key" certifies "that key" to be valid for a while as "this key"
 
 Similar:
 - https://tools.ietf.org/id/draft-yusef-oauth-nested-jwt-00.html
@@ -90,3 +90,8 @@ NOTES
 - "kid" MAY be present in header
 - when "kid" is present in header, it MUST match the "kid" of the "npk"
 - application MAY cache NPK-s, in which case it MUST check the time related fields of the JWT before each use.
+
+
+### NPK verification
+Given a JWS, if it has a "kid" header, check to see if it matches a pre-defined, pinned public key. 
+Alternatively, if "npk" is present, check if it contains a JWT signed with a pre-defined, pinned public key. And if the JWS is signed with the public key contained in the "npk" field of the JWT.
