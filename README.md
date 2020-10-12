@@ -4,19 +4,19 @@ Opinionated usage of JWK/JWS/JWT stack for representing authentication and confi
 ## `"npk"` - Notarized Public Keys (JWT as JWS header value with a notarized JWK)
 > AKA - pinned key with temporary subkeys.
 
-Goals:
-- have a cloud service that depend on Ed25519 signing keys for identity
+Goals / setup description:
+- have a cloud service that depend on Ed25519 signing keys for identity (pubkey == identity, much like bitcoin addresses)
 - have client applications pin that public key in code
-- don't have exposed copies of the pinned key in cloud services
+- don't have exposed copies of the pinned key private component in cloud services
 - don't create a full X509 style PKI CA system
-- keep pinned key offline and distribute temporary keys to cloud services during deployment
+- keep pinned key offline and distribute temporary keypairs to cloud services during deployment
 
 Here because https://www.reddit.com/r/crypto/comments/hoph9d/x509_in_jsonjwt/ yielded no results.
 
 In essence something not unlike PGP subkeys or mini-CA where there is no "subject identity", just public keys.
 
 In essence:
-- "npk" field for JWT payload, which is like a certificate
+- "npk" field for JWT payload, which is like a certificate; contains the public key to be notarized
 - "npk" field for JWS header, which acts like replacement for "kid" - includes a self-contained claim that chains to an explicitly trusted public key.
 - "this key" certifies "that key" to be valid for a while as "this key"
 
