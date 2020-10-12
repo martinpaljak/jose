@@ -20,6 +20,10 @@ In essence:
 - "npk" field for JWS header, which acts like replacement for "kid" - includes a self-contained claim that chains to an explicitly trusted public key.
 - "this key" certifies "that key" to be valid for a while as "this key"
 
+Similar:
+- https://tools.ietf.org/id/draft-yusef-oauth-nested-jwt-00.html
+- https://gist.github.com/kag0/afc424b76d9ac46ba88cbf18dd57dc18
+
 #### Given a master key with JWK thumbprint `gNcTLfHQVkVbnoUSHezrNYdACB8G215Yhuz8v-WQ73s`
 ```
 {
