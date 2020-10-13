@@ -95,3 +95,12 @@ NOTES
 ### NPK verification
 Given a JWS, if it has a "kid" header, check to see if it matches a pre-defined, pinned public key. 
 Alternatively, if "npk" is present, check if it contains a JWT signed with a pre-defined, pinned public key. And if the JWS is signed with the public key contained in the "npk" field of the JWT.
+
+
+### Links
+- https://www.iana.org/assignments/jose/jose.xhtml
+- https://tools.ietf.org/html/rfc7515 JWS
+- https://tools.ietf.org/html/rfc7638 JWK thumbprint
+- https://tools.ietf.org/html/rfc7519 JWT
+- https://tools.ietf.org/html/rfc7516 JWE
+- https://tools.ietf.org/html/rfc8037 Ed25519
