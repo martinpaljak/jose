@@ -98,7 +98,7 @@ Alternatively, if "npk" is present, check if it contains a JWT signed with a pre
 
 
 ### Links
-- https://www.iana.org/assignments/jose/jose.xhtml
+- https://www.iana.org/assignments/jose/jose.xhtml field registry
 - https://tools.ietf.org/html/rfc7515 JWS
 - https://tools.ietf.org/html/rfc7638 JWK thumbprint
 - https://tools.ietf.org/html/rfc7519 JWT
