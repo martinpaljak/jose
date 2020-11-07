@@ -43,7 +43,7 @@ NOTES
   "x" : "wy8hrsVOUxT6eGdQnccdVNbx7JnV7oqiSGMY2kmGgjo"
 }
 ```
-#### Shall be combined into the following JWT containing `"npk"`
+#### Shall be combined into the following JWT containing `"jwk"` in the _payload_
 ```
 {
   "typ" : "JWT",
@@ -52,7 +52,7 @@ NOTES
 }
 {
   "iss" : "dLz8B-W06uOuzFFzywK_aWQsMK5siPi6YRU10vYzvO8",
-  "npk" : {
+  "jwk" : {
     "crv" : "Ed25519",
     "kty" : "OKP",
     "x" : "wy8hrsVOUxT6eGdQnccdVNbx7JnV7oqiSGMY2kmGgjo"
@@ -63,7 +63,7 @@ NOTES
 }
 ```
 NOTES
-- "npk" MUST be present and contain the JSON used to calculate the JWK Thumbrpint of the key
+- "jwk" MUST be present and contain the JSON used to calculate the JWK Thumbrpint of the key
   - XXX: would use "sub" but that must be a string. Encoding "npk" into base64 for inclusion in "sub" seems weird
 - "iat", "nbf" and "exp" MUST be present and MUST be checked against current time when consumed
 - "iss" SHOULD be present and represent the "x" of EdDSA public key for self-contained NPK-s
@@ -73,13 +73,17 @@ NOTES
 #### When used to sign the following:
 ```
 {
+  "Hello" : "World",
+  "novelty" : false
+}
+```
+
+#### the following header should be used:
+```
+{
   "kid" : "WgL_9NpEmJtUBQ8q-Ff3txkU2vInbZxFF9rxeintiRU",
   "npk" : "eyJ0eXAiOiJKV1QiLCJraWQiOiJnTmNUTGZIUVZrVmJub1VTSGV6ck5ZZEFDQjhHMjE1WWh1ejh2LVdRNzNzIiwiYWxnIjoiRWREU0EifQ.eyJpc3MiOiJkTHo4Qi1XMDZ1T3V6RkZ6eXdLX2FXUXNNSzVzaVBpNllSVTEwdll6dk84IiwibnBrIjp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4Ijoid3k4aHJzVk9VeFQ2ZUdkUW5jY2RWTmJ4N0puVjdvcWlTR01ZMmttR2dqbyJ9LCJpYXQiOjE2MDI0MDYwMTAsIm5iZiI6MTYwMjQwNjAxMCwiZXhwIjoxNjAyNDkyNDEwfQ.14sx28_6SSHGwEphHB3ddXHHBVeqDTJGXovQSYXZv3svdntf-bhZMp_hfjknFEdYYSmJms78-G9rMDZv_CocAQ",
   "alg" : "EdDSA"
-}
-{
-  "Hello" : "World",
-  "novelty" : false
 }
 ```
 #### will yield an actual JWS of npk header + payload
@@ -90,7 +94,6 @@ NOTES
 - "kid" MAY be present in header
 - when "kid" is present in header, it MUST match the "kid" of the "npk"
 - application MAY cache NPK-s, in which case it MUST check the time related fields of the JWT before each use.
-
 
 ### NPK verification
 Given a JWS, if it has a "kid" header, check to see if it matches a pre-defined, pinned public key. 
